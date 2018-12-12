@@ -3,9 +3,9 @@
     "type": "object",
     "properties": {
       "ORPHApacketID": {
-          "type": "integer",
-          "format": "int64",
-          "example": 10
+        "type": "integer",
+        "format": "int64",
+        "example": 10
       },
       "Name": {
         "type": "object",
@@ -84,54 +84,54 @@
 		"example": "Disease definition"
 	      },
               "lang": {
-	      "type": "string",
-	      "example": "en"
-	    }
-          }
-	}
-      }
-    },
-    "TypeOfInheritanceList": {
-      "type": "object",
-      "properties": {
-      "TypeOfInheritance": {
-	"type": "object",
-	"properties": {
-          "Name": {
-	    "type": "object",
-	      "properties": {
-                "label": {
-		  "type": "string",
-		  "example": "Autosomal recessive"
-		},
-                "lang": {
-	  	  "type": "string",
-		  "example": "en"
-		}
-              }
-	    }
+	        "type": "string",
+	        "example": "en"
+	      }
+            }
 	  }
-	}
-      }
-    },
-    "AverageAgeOfOnsetList": {
-      "type": "object",
-      "properties": {
-        "AverageAgeOfOnset": {
-	  "type": "array",
-	  "items": {
+        }
+      },
+      "TypeOfInheritanceList": {
+        "type": "object",
+        "properties": {
+          "TypeOfInheritance": {
 	    "type": "object",
 	    "properties": {
               "Name": {
-		"type": "object",
-		"properties": {
+	        "type": "object",
+	        "properties": {
                   "label": {
 		    "type": "string",
+		    "example": "Autosomal recessive"
+		  },
+                  "lang": {
+	  	    "type": "string",
+		    "example": "en"
+		  }
+                }
+	      }
+	    }
+	  }
+        }
+      },
+      "AverageAgeOfOnsetList": {
+        "type": "object",
+        "properties": {
+          "AverageAgeOfOnset": {
+	    "type": "array",
+	    "items": {
+	      "type": "object",
+	      "properties": {
+                "Name": {
+		  "type": "object",
+		  "properties": {
+                    "label": {
+		      "type": "string",
 		      "example": "Childhood"
 		    },
                     "lang": {
 		      "type": "string",
-		        "example": "en"
+		      "example": "en"
 		    }
                   }
 		}
@@ -145,227 +145,227 @@
 	"properties": {
           "ExternalReference": {
 	    "type": "array",
-	      "items": {
-		"type": "object",
-		"properties": {
-               	  "DisorderMappingRelation": {
-		    "properties": {
-                      "Name": {
-			"type": "object",
-			"properties": {
-                      	  "label": {
-			    "type": "string",
-			    "example": "E (exact mapping (the terms and the concepts are equivalent))"
-			  },
-                      	  "lang": {
-			    "type": "string",
-			    "example": "en"
-                    	  }
-			}
-                      },
-                      "id": {
-			"type": "integer",
-			"format": "int64",	
-			"example": "21527"
-               	      }
-		    },
-                    "Reference": {
-		      "type": "integer",
-		      "format": "int64",
-		      "example": "208900"
-		    },
-               	    "Source": {
-		      "type": "string",
-		      "example": "OMIM"
-            	    }
-		  }
-		}
-              }
-       	    }
-	  }
-	},
-        "DisorderGeneAssociationList": {
-	  "type": "object",
-	  "properties": {
-       	    "DisorderGeneAssociation": {
-	      "type": "array",
-		"items": {
-		  "type": "object",
-		  "properties": { 
-              	    "DisorderGeneAssociationType": {
+	    "items": {
+	      "type": "object",
+	      "properties": {
+                "DisorderMappingRelation": {
+		  "properties": {
+                    "Name": {
 		      "type": "object",
 		      "properties": {
-                  	"Name": {
-			  "type": "object",
-			  "properties": {
-                      	  "label": {
-			    "type": "string",
-			    "example": "Disease-causing germline mutation(s) in"
-			  },
-                      	  "lang": {
-			    "type": "string",
-			    "example": "en"
-			  }
-                    	}
-                      },
-               	      "OrphaNumber": {
-			"type": "string",
-			"example": "317343"
-       		      }
-		    }
-		  },
-              	  "Gene": {
-		    "type": "object",
-		    "properties": {
-               	      "ExternalReferenceList": {
-		  	"type": "object",
-		  	"properties": {
-      			  "ExternalReference": {
-			    "type": "array",
-			    "items": {
-			      "type": "object",
-				"properties": {
-                        	  "Reference": {
-				    "type": "integer",
-				    "format": "int64",
-				    "example": "795"
-				  },
-                        	  "Source": {
-				    "type": "string",
-				    "example": "HGNC"
-				  }
-				}
-			      }
-                            }
-			  }		
-                        },
-			"Name": {
-		  	  "type": "object",
-			  "properties": { 
-                            "label": {
-			      "type": "string",
-			      "example": "ATM serine/threonine kinase"
-			    },
-                      	    "lang": {
-			      "type": "string",
-			      "example": "en"
-			    }
-			  }
-                        },
-                  	"Symbol": {
-			  "type": "string",
-		 	  "example": "ATM"
-			}
-                      }
-		    }
-		  }
-		}
+                        "label": {
+		          "type": "string",
+		          "example": "E (exact mapping (the terms and the concepts are equivalent))"
+		        },
+                        "lang": {
+		          "type": "string",
+		          "example": "en"
+                        }
+		      }
+                    },
+                    "id": {
+		      "type": "integer",
+		      "format": "int64",	
+		      "example": "21527"
+               	    }
+	          },
+                  "Reference": {
+	            "type": "integer",
+	            "format": "int64",
+	            "example": "208900"
+	          },
+                  "Source": {
+	            "type": "string",
+	            "example": "OMIM"
+                  }
+	        }
 	      }
-	    }
-          },
-          "SubClassOfList": {
-	    "type": "object",
-	    "properties": {
-              "Disorder": {
-		"type": "array",
-		  "items": {
-		    "type": "object",
-		    "properties": {
-              	      "Name": {
-			"type": "object",
-			"properties": {
-                	  "label": {
-			    "type": "string",
-			    "example": "Oculomotor apraxia or related oculomotor disease"
-			  },
-                  	  "lang": {
-			    "type": "string",
-			    "example": "en"
-			  }
-			}
+            }
+          }
+        }
+      },
+      "DisorderGeneAssociationList": {
+        "type": "object",
+        "properties": {
+          "DisorderGeneAssociation": {
+            "type": "array",
+	    "items": {
+	      "type": "object",
+	      "properties": { 
+       	        "DisorderGeneAssociationType": {
+	          "type": "object",
+	          "properties": {
+               	    "Name": {
+		      "type": "object",
+		      "properties": {
+                        "label": {
+		          "type": "string",
+		          "example": "Disease-causing germline mutation(s) in"
+		        },
+                        "lang": {
+		          "type": "string",
+		          "example": "en"
+		        }
                       }
                     },
-              	    "ORPHA": {
-		      "type": "integer",
-		      "format": "int64",
-		      "example": "98688"
-		    },
-                    "PURL": {
+                    "OrphaNumber": {
 		      "type": "string",
-		      "example": "http://www.orpha.net/ORDO/Orphanet_98688"
-		    }   
-		  }
-		}
-	      }	
-	    },
-      	    "HPODisorderAssociationList": {
-	      "type": "object",
-	      "properties": {
-		"HPODisorderAssociation": {
-		  "type": "array",
-		  "items": {
-		    "type": "object",
-		    "properties": {					
-              	      "HPOFrequency": {
-			"type": "object",
-			"properties": {
-                    	  "Name": {
-			    "type": "object",
-			    "properties":{ 
-                      	      "label": {
-				"type": "string",
-				"example": "Occasional (29-5%)"
+	  	      "example": "317343"
+       		    }
+	          }
+	        },
+                "Gene": {
+	          "type": "object",
+	          "properties": {
+                    "ExternalReferenceList": {
+		      "type": "object",
+		      "properties": {
+      		        "ExternalReference": {
+		          "type": "array",
+		          "items": {
+		            "type": "object",
+			    "properties": {
+                       	      "Reference": {
+			        "type": "integer",
+			        "format": "int64",
+			        "example": "795"
 			      },
-                      	      "lang": {
-				"type": "string",
-				"example": "en"
+                              "Source": {
+			        "type": "string",
+			        "example": "HGNC"
 			      }
 			    }
-                    	  }
-                  	},
-                  	"ORPHA": {
-			  "type": "integer",
-			  "example": "453313"
-			}	
-                      }
-              	    },
-              	    "HPOId": {
+ 		          }
+                        }
+		      }		
+                    },
+		    "Name": {
+	  	      "type": "object",
+		      "properties": { 
+                        "label": {
+		          "type": "string",
+		          "example": "ATM serine/threonine kinase"
+		        },
+                        "lang": {
+		          "type": "string",
+		          "example": "en"
+		        }
+		      }
+                    },
+                    "Symbol": {
 		      "type": "string",
-		      "example": "HP:0000035"
-		    },
-              	    "HPOTerm": {
-		      "type": "string",
-		      "example": "Abnormality of the testis"
-		    },
-              	    "PURL": {
-		      "type": "string",
-		      "example": "http://purl.obolibrary.org/obo/HP_0000035"
-		    }  
-            	  }
-          	}
-              }
-      	    },
-      	    "HPODisorderSetStatus": {
-	      "type": "object",
+		      "example": "ATM"
+		    }
+                  }
+	        }
+	      }
+	    }
+          }
+        }
+      },
+      "SubClassOfList": {
+        "type": "object",
+        "properties": {
+          "Disorder": {
+            "type": "array",
+            "items": {
+              "type": "object",
 	      "properties": {
-          	"ValidationStatus": {
-	  	  "type": "string",
-		  "example": "y"
-		}
-              }
-      	    },
-      	    "copyright": {
-	      "type": "string",
-	      "example": "Orphanet (c) 2018"
-	    },
-      	    "date": {
-	      "type": "string",
-	      "example": "2018-07-09 14:20:55"
-	    },
-      	    "version": {
-	      "type": "string",
-	      "example": "1.2.11 / 4.1.6 [2018-04-12] (orientdb version)"
-    	    }
+                "Name": {
+		  "type": "object",
+		  "properties": {
+               	    "label": {
+		      "type": "string",
+		      "example": "Oculomotor apraxia or related oculomotor disease"
+		    },
+                    "lang": {
+		      "type": "string",
+		      "example": "en"
+		    }
+		  }
+                }
+              },
+              "ORPHA": {
+	        "type": "integer",
+	        "format": "int64",
+	        "example": "98688"
+	      },
+              "PURL": {
+	        "type": "string",
+	        "example": "http://www.orpha.net/ORDO/Orphanet_98688"
+	      }   
+	    }
 	  }
-  	}
+        }	
+      },
+      "HPODisorderAssociationList": {
+        "type": "object",
+        "properties": {
+	  "HPODisorderAssociation": {
+	    "type": "array",
+            "items": {
+	      "type": "object",
+	      "properties": {					
+                "HPOFrequency": {
+	          "type": "object",
+		  "properties": {
+                    "Name": {
+		      "type": "object",
+		      "properties":{ 
+                        "label": {
+			  "type": "string",
+			  "example": "Occasional (29-5%)"
+			},
+                        "lang": {
+			  "type": "string",
+			  "example": "en"
+			}
+		      }
+                    }
+                  },
+                  "ORPHA": {
+		    "type": "integer",
+		    "example": "453313"
+		  }	
+                }
+              },
+              "HPOId": {
+	        "type": "string",
+		"example": "HP:0000035"
+              },
+              "HPOTerm": {
+	        "type": "string",
+		"example": "Abnormality of the testis"
+	      },
+              "PURL": {
+	        "type": "string",
+		"example": "http://purl.obolibrary.org/obo/HP_0000035"
+	      }  
+            }
+          }
+        }
+      },
+      "HPODisorderSetStatus": {
+        "type": "object",
+	"properties": {
+          "ValidationStatus": {
+	    "type": "string",
+	    "example": "y"
+	  }
+        }
+      },
+      "copyright": {
+        "type": "string",
+        "example": "Orphanet (c) 2018"
+      },
+      "date": {
+        "type": "string",
+        "example": "2018-07-09 14:20:55"
+      },
+      "version": {
+        "type": "string",
+	"example": "1.2.11 / 4.1.6 [2018-04-12] (orientdb version)"
       }
+    }
+  }
+}
