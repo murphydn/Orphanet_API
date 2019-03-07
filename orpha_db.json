@@ -1,0 +1,249 @@
+{
+  "orphapacket": [
+    {
+      "ORPHApacketID": 1000,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "ORPHApacketID": 20,
+      "Name": {
+        "label": "Second disease",
+        "lang": "en"
+      },
+      "SubClassOfList": {
+        "Disorder": [
+          {
+            "Name": {
+              "label": "Some other disease",
+              "lang": "en"
+            },
+            "ORPHA": 10000000,
+            "PURL": "http://www.orpha.net/ORDO/Orphanet_10000000"
+          }
+        ]
+      }
+    }
+  ],
+  "hpo_terms": [
+    {
+      "id": 1,
+      "ORPHApacketID": 10,
+      "Name": {
+        "label": "Ataxia-telangiectasia",
+        "lang": "en"
+      },
+      "HPODisorderAssociationList": [
+        {
+          "HPODisorderAssociation": [
+            {
+              "HPOFrequency": {
+                "Name": {
+                  "label": "Occasional (29-5%)",
+                  "lang": "en"
+                },
+                "ORPHA": 453313,
+                "HPOId": "HP:0000023",
+                "HPOTerm": "Inguinal hernia",
+                "PURL": "http://purl.obolibrary.org/obo/HP_0000023"
+              }
+            },
+            {
+              "HPOFrequency": {
+                "Name": {
+                  "label": "Very frequent (99-80%)",
+                  "lang": "en"
+                },
+                "ORPHA": 453311,
+                "HPOId": "HP:0000027",
+                "HPOTerm": "Azoospermia",
+                "PURL": "http://purl.obolibrary.org/obo/HP_0000027"
+              }
+            },
+            {
+              "HPOFrequency": {
+                "Name": {
+                  "label": "Occasional (29-5%)",
+                  "lang": "en"
+                },
+                "ORPHA": 453313,
+                "HPOId": "HP:0000028",
+                "HPOTerm": "Cryptorchidism",
+                "PURL": "http://purl.obolibrary.org/obo/HP_0000028"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "ORPHApacketID": 20,
+      "Name": {
+        "label": "Second disease",
+        "lang": "en"
+      },
+      "HPODisorderAssociationList": {
+        "HPODisorderAssociation": [
+          {
+            "HPOFrequency": {
+              "Name": {
+                "label": "Occasional (29-5%)",
+                "lang": "en"
+              },
+              "ORPHA": 453313,
+              "HPOId": "HP:0000028",
+              "HPOTerm": "Cryptorchidism",
+              "PURL": "http://purl.obolibrary.org/obo/HP_0000028"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "orphapacket_findByORPHApacketID": [
+    {
+      "id": 2,
+      "ORPHApacketID": 100,
+      "Name": {
+        "label": "Second disease",
+        "lang": "en"
+      },
+      "SubClassOfList": {
+        "Disorder": [
+          {
+            "Name": {
+              "label": "Some other disease",
+              "lang": "en"
+            },
+            "ORPHA": 10000000,
+            "PURL": "http://www.orpha.net/ORDO/Orphanet_10000000"
+          }
+        ]
+      }
+    }
+  ],
+  "other_packet": [
+    {
+      "id": 3,
+      "ORPHApacketID": 10,
+      "Name": {
+        "label": "Ataxia-telangiectasia",
+        "lang": "en"
+      },
+      "SubClassOfList": {
+        "Disorder": [
+          {
+            "Name": {
+              "label": "Oculomotor apraxia or related oculomotor disease",
+              "lang": "en"
+            },
+            "ORPHA": 98688,
+            "PURL": "http://www.orpha.net/ORDO/Orphanet_98688"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "ORPHApacketID": 20,
+      "Name": {
+        "label": "Second disease",
+        "lang": "en"
+      },
+      "SubClassOfList": {
+        "Disorder": [
+          {
+            "Name": {
+              "label": "Some other disease",
+              "lang": "en"
+            },
+            "ORPHA": 10000000,
+            "PURL": "http://www.orpha.net/ORDO/Orphanet_10000000"
+          }
+        ]
+      }
+    },
+    {
+      "ORPHApacketID": 40,
+      "Name": {
+        "label": "Some disease",
+        "lang": "en"
+      },
+      "SubClassOfList": {
+        "Disorder": [
+          {
+            "Name": {
+              "label": "Some disorder",
+              "lang": "en"
+            },
+            "ORPHA": 10000,
+            "PURL": "http://www.orpha.net/ORDO/Orphanet_00000"
+          }
+        ]
+      },
+      "id": 5
+    }
+  ],
+  "status": [
+    {
+      "id": 1,
+      "ORPHApacketID": 1000,
+      "status": "retired"
+    },
+    {
+      "id": 2,
+      "ORPHApacketID": 100,
+      "status": "retired"
+    },
+    {
+      "id": 3,
+      "ORPHApacketID": 10,
+      "status": "deprecated"
+    },
+    {
+      "id": 5,
+      "ORPHApacketID": "1000",
+      "status": "retired"
+    }
+  ],
+  "status_findByORPHApacketID": [
+    {
+      "id": 1,
+      "ORPHApacketID": 1000,
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "ORPHApacketID": 100,
+      "status": "retired"
+    },
+    {
+      "id": 3,
+      "ORPHApacketID": 10,
+      "status": "deprecated"
+    }
+  ],
+  "status_listByStatus": [
+    {
+      "id": 1,
+      "ORPHApacketID": 1000,
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "ORPHApacketID": 100,
+      "status": "retired"
+    },
+    {
+      "id": 3,
+      "ORPHApacketID": 10,
+      "status": "deprecated"
+    },
+    {
+      "id": 4,
+      "ORPHApacketID": 120,
+      "status": "deprecated"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "/orphapacket/findByORPHApacketID": "/orphapacket_findByORPHApacketID",
+  "/status/listByStatus": "/status_listByStatus",
+  "/status/findByORPHApacketID": "/status_findByORPHApacketID"
+}
