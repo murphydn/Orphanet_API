@@ -1,0 +1,84 @@
+{
+  "orphapacket": [
+    {
+      "id": 1,
+      "ORPHApacketID": 10,
+      "Name": {
+        "label": "Ataxia-telangiectasia",
+        "lang": "en"
+      },
+      "SubClassOfList": {
+        "Disorder": [
+          {
+            "Name": {
+              "label": "Oculomotor apraxia or related oculomotor disease",
+              "lang": "en"
+            },
+            "ORPHA": 98688,
+            "PURL": "http://www.orpha.net/ORDO/Orphanet_98688"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "ORPHApacketID": 20,
+      "Name": {
+        "label": "Second disease",
+        "lang": "en"
+      },
+      "SubClassOfList": {
+        "Disorder": [
+          {
+            "Name": {
+              "label": "Some other disease",
+              "lang": "en"
+            },
+            "ORPHA": 10000000,
+            "PURL": "http://www.orpha.net/ORDO/Orphanet_10000000"
+          }
+        ]
+      }
+    },
+    {
+      "ORPHApacketID": 40,
+      "Name": {
+        "label": "Some disease",
+        "lang": "en"
+      },
+      "SubClassOfList": {
+        "Disorder": [
+          {
+            "Name": {
+              "label": "Some disorder",
+              "lang": "en"
+            },
+            "ORPHA": 10000,
+            "PURL": "http://www.orpha.net/ORDO/Orphanet_00000"
+          }
+        ]
+      },
+      "id": 3
+    },
+    {
+      "ORPHApacketID": 40,
+      "Name": {
+        "label": "Some disease",
+        "lang": "en"
+      },
+      "SubClassOfList": {
+        "Disorder": [
+          {
+            "Name": {
+              "label": "Some disorder",
+              "lang": "en"
+            },
+            "ORPHA": 10000,
+            "PURL": "http://www.orpha.net/ORDO/Orphanet_00000"
+          }
+        ]
+      },
+      "id": 4
+    }
+  ]
+}
