@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Orphanet subclass status in yaml
+  title: Orphanet subclass status in yaml not json
   description: An API used to find out whether an Orphanet entry is obsolete
   contact:
     name: Orphanet API Team
