@@ -1,0 +1,2082 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Orphanet clincal entities",
+    "description" : "An API used to search Orphanet entries.",
+    "contact" : {
+      "name" : "Orphanet API Team",
+      "email" : "danielmurphy@mater.ie"
+    },
+    "version" : "2-oas3"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/orphanet/ClinicalEntity/2-oas3/",
+    "description" : "Remote testing host"
+  }, {
+    "url" : "http://localhost:3000/",
+    "description" : "local testing host"
+  } ],
+  "security" : [ {
+    "api_key" : [ ],
+    "basic_auth" : [ ]
+  } ],
+  "paths" : {
+    "/{lang}/ClinicalEntity" : {
+      "get" : {
+        "summary" : "Search for all Orphanet clinical entities.",
+        "description" : "The result is a data set that includes an ORPHAnumber, the status, the preferred term and the definition (when one exists) of each active Orphanet clinical entity.",
+        "operationId" : "ListEntities",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Array of Clinical Entities",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ClinicalEntity"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ClinicalEntity"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/Status" : {
+      "get" : {
+        "tags" : [ "Status" ],
+        "summary" : "Search for the status of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber and the status of the ORPHAnumber.",
+        "operationId" : "ListStatus",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status of entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Status"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/TargetEntity" : {
+      "get" : {
+        "tags" : [ "TargetORPHA" ],
+        "summary" : "Search for the target entity by the obsolete or deprecated clinical entity's ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber and the status of the required entity, with additional 'referred to' or 'moved to' relations pointing to the target ORPHAnumber.",
+        "operationId" : "ListTarget",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Target entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TargetEntity"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TargetEntity"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/Name" : {
+      "get" : {
+        "tags" : [ "Name" ],
+        "summary" : "Search for the preferred term of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber required with its preferred term.",
+        "operationId" : "ListName",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Preferred term",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Name"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Name"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/Definition" : {
+      "get" : {
+        "tags" : [ "Definition" ],
+        "summary" : "Search for the definition of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber required with its definition.",
+        "operationId" : "ListDefinition",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Definition of disorder",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Definition"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Definition"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/Synonym" : {
+      "get" : {
+        "tags" : [ "Synonym" ],
+        "summary" : "Search for the synonym(s) of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber required with a collection of related synonyms.",
+        "operationId" : "ListSynonym",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Synonym(s) of disorder",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Synonym"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Synonym"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/GroupType" : {
+      "get" : {
+        "tags" : [ "GroupType" ],
+        "summary" : "Search for the type of group of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber required with its related type of group.",
+        "operationId" : "ListGroup",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Type of group of the clinical entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GroupType"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GroupType"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/Type" : {
+      "get" : {
+        "tags" : [ "Type" ],
+        "summary" : "Search for the type of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber required with its related type.",
+        "operationId" : "ListType",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Type of clinical entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Type"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Type"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/OrphanetURL" : {
+      "get" : {
+        "tags" : [ "OrphanetURL" ],
+        "summary" : "Search for the OrphanetURL of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber and the stable URL pointing to the specific page of the clinical entity on the Orphanet website of the ORPHAnumber.",
+        "operationId" : "ListURL",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OrphanetURL of the clinical entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrphanetURL"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrphanetURL"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/ORPHAnumberAgregation" : {
+      "get" : {
+        "tags" : [ "ORPHAnumberAgregation" ],
+        "summary" : "Search for or check the ORPHAnumber agregation level of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber and the preferred term of the agregation level of the ORPHAnumber that was sought.",
+        "operationId" : "ListAgregation",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ORPHAnumber agregation level of the clinical entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ORPHAnumberAgregation"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ORPHAnumberAgregation"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/ICD10" : {
+      "get" : {
+        "tags" : [ "ICD10" ],
+        "summary" : "Search for ICD10 code(s) of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is a collection of data including ORPHAnumber, the stable URL pointing to the specific page of the clinical entity on the Orphanet website, characterisation of the alignment between the clinical entity and ICD-10, and status of the mapping (Validated or Not yet valiated).",
+        "operationId" : "ListICD10",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ICD10 code(s) of the clinical entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ICD10"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ICD10"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/ICD10/{id}/" : {
+      "get" : {
+        "tags" : [ "ICD10" ],
+        "summary" : "Search for the clinical entity's ORPHAnumber by ICD-10 code.",
+        "description" : "The result is a dataset including ORPHAnumber, status, preferred term and definition.",
+        "operationId" : "ListOrphaByICD10",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ICD10 code of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Clinical entity correpsonding to specific ICD10 code",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Entity_by_icd"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Entity_by_icd"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/orphanumber/{id}/Classification" : {
+      "get" : {
+        "tags" : [ "classification" ],
+        "summary" : "Search for the list of classification(s) of the clinical entity by its ORPHAnumber.",
+        "description" : "The result is the ORPHAnumber and preferred term of the clinical entity with a data set or each classification where the clinical entity is present (set includes: unique identifier of the classification, name of the classification, ORPHAnumber and name of the n+1 clinical entity).",
+        "operationId" : "ListClassification",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of classifications",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Classification"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Classification"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/Classification/{id}" : {
+      "get" : {
+        "tags" : [ "classification" ],
+        "summary" : "Search for the list of clinical entities' ORPHAnumbers in one specific classification by the unique identifer of the classification.",
+        "description" : "The result is a data set including ORPHAnumber, status, preferred term and definition of all clinical entities.",
+        "operationId" : "ListOrphaByClassification",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of classification entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of clinical entities under specified classification",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Entities_by_classification"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Entities_by_classification"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/Classification/{id}/orphanumber/{Id}/Parent" : {
+      "get" : {
+        "tags" : [ "Parent" ],
+        "summary" : "Search for information about the n+1 (parent) of the clinical entity in one specific classification by the clinical entity's ORPHAnumber and unique identifier of the classification.",
+        "description" : "The result is a data set including ORPHAnumber, status, preferred term and definition of all clinical entities.",
+        "operationId" : "ListParent",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "Id",
+          "in" : "path",
+          "description" : "Parent classification ID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Parent of specified clinical entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Parent"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Parent"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/Classification/{id}/orphanumber/{Id}/Child" : {
+      "get" : {
+        "tags" : [ "Child" ],
+        "summary" : "Search for information about the n-1 (child) of the clinical entity in one specific classification by the clinical entity's ORPHAnumber and unique identifier of the classification.",
+        "description" : "The result returned the ORPHAnumber and preferred term of the clinical entity with a data collection for the searched classification  (data set includes: unique identifier of the classification, name of the classification, ORPHAnumber and name of the n-1 clinical entity also named as 'child' of the clinical entity).",
+        "operationId" : "ListChild",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ORPHAnumber of entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "Id",
+          "in" : "path",
+          "description" : "Child classification ID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Child of specified clinical entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Child"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Child"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/FindbyOMIM/{codeOMIM}" : {
+      "get" : {
+        "tags" : [ "OMIM" ],
+        "summary" : "Search for the clinical entity's information by OMIM code.",
+        "description" : "The result is a data set including ORPHAnumber, status, preferred term, definition, the relationship between the clinical entity and the OMIM code and the status of the mapping.",
+        "operationId" : "ListOrphaByOMIM",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "codeOMIM",
+          "in" : "path",
+          "description" : "OMIM code to be searched",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Clinical entity correpsonding to specified OMIM code",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FindbyOMIM"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FindbyOMIM"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/ClinicalEntity/FindbyName/{label}" : {
+      "get" : {
+        "tags" : [ "Name" ],
+        "summary" : "Search for the clinical entity's information by name.",
+        "description" : "The result is a data set including ORPHAnumber, status, preferred term and  definition.",
+        "operationId" : "ListByName",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "Desired language",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "en", "fr", "de" ]
+          }
+        }, {
+          "name" : "label",
+          "in" : "path",
+          "description" : "Entity name",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Clinical entity",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FindbyName"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FindbyName"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Authorization information is missing or invalid"
+          },
+          "403" : {
+            "description" : "Bad server request"
+          },
+          "404" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              },
+              "application/yaml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "ErrorModel" : {
+        "required" : [ "code", "message" ],
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 404
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Error"
+          }
+        }
+      },
+      "ClinicalEntity" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/ClinicalEntity_inner"
+        }
+      },
+      "Status" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "Status" : {
+            "type" : "string",
+            "example" : "Active",
+            "enum" : [ "Active", "Active_Historical entity", "Inactive_Deprecated entity", "Inactive_Obsolete entity", "Inactive_Non Rare disease in Europe" ]
+          }
+        }
+      },
+      "TargetEntity" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "Status" : {
+            "type" : "string",
+            "example" : "Active",
+            "enum" : [ "Active", "Active_Historical entity", "Inactive_Deprecated entity", "Inactive_Obsolete entity", "Inactive_Non Rare disease in Europe" ]
+          },
+          "Relation" : {
+            "type" : "string",
+            "example" : "referred to",
+            "enum" : [ "referred to", "Moved to" ]
+          },
+          "Target ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 100
+          }
+        }
+      },
+      "Name" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "Preferred term" : {
+            "type" : "string",
+            "example" : "48,XXYY syndrome"
+          }
+        }
+      },
+      "Definition" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "Definition" : {
+            "type" : "string",
+            "example" : "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+          }
+        }
+      },
+      "Synonym" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 73
+          },
+          "Synonym(s)" : {
+            "type" : "array",
+            "example" : [ "Gorham disease", "Gorham syndrome", "Idiopathic massive osteolysis", "Progressive massive osteolysis", "Vanishing bone disease" ],
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "GroupType" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "GroupType" : {
+            "type" : "string",
+            "example" : "Group",
+            "enum" : [ "Group", "Disorder", "SubType" ]
+          }
+        }
+      },
+      "Type" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "Type" : {
+            "type" : "string",
+            "example" : "disease",
+            "enum" : [ "biological anomaly", "clinical subtype", "clinical syndrome", "disease", "etiological subtype", "Clinical group", "histopathological subtype", "malformation syndrome", "morphological anomaly", "particular clinical situation in a disease or syndrome", "Category" ]
+          }
+        }
+      },
+      "OrphanetURL" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "OrphanetURL" : {
+            "type" : "string",
+            "example" : "http://www.orpha.net/ORDO/Orphanet_10"
+          }
+        }
+      },
+      "ORPHAnumberAgregation" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumberAgregation" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "Preferred term" : {
+            "type" : "string",
+            "example" : "48,XXYY syndrome"
+          }
+        }
+      },
+      "ICD10" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "OrphanetURL" : {
+            "type" : "string",
+            "example" : "http://www.orpha.net/ORDO/Orphanet_10"
+          },
+          "Code ICD" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ICD10_Code ICD"
+            }
+          }
+        }
+      },
+      "Entity_by_icd" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/ClinicalEntity_inner"
+        }
+      },
+      "Classification" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 167848
+          },
+          "Preferred term" : {
+            "type" : "string",
+            "example" : "Rare Cardiomyopathy"
+          },
+          "classification" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Classification_classification"
+            }
+          }
+        }
+      },
+      "Entities_by_classification" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/ClinicalEntity_inner"
+        }
+      },
+      "Parent" : {
+        "type" : "object",
+        "properties" : {
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 167848
+          },
+          "Preferred term" : {
+            "type" : "string",
+            "example" : "Rare cardiomyopathy"
+          },
+          "ID of the classification" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 12948
+          },
+          "Name of the classification" : {
+            "type" : "string",
+            "example" : "Rare cardiac disease"
+          },
+          "Parent ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 97929
+          },
+          "Parent preferred term" : {
+            "type" : "string",
+            "example" : "Rare cardiac disease"
+          }
+        }
+      },
+      "Child" : {
+        "type" : "object",
+        "properties" : {
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 167848
+          },
+          "Preferred term" : {
+            "type" : "string",
+            "example" : "Rare cardiomyopathy"
+          },
+          "ID of the classification" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 8591
+          },
+          "Name of the classification" : {
+            "type" : "string",
+            "example" : "Arrhythmogenic right ventricular cardiomyopathy"
+          },
+          "Child ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 247
+          },
+          "Child preferred term" : {
+            "type" : "string",
+            "example" : "Arrhythmogenic right ventricular cardiomyopathy"
+          }
+        }
+      },
+      "FindbyOMIM" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/FindbyOMIM_inner"
+        }
+      },
+      "FindbyName" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 558
+          },
+          "Status" : {
+            "type" : "string",
+            "example" : "Active",
+            "enum" : [ "Active", "Active_Historical entity", "Inactive_Deprecated entity", "Inactive_Obsolete entity", "Inactive_Non Rare disease in Europe" ]
+          },
+          "Preferred term" : {
+            "type" : "string",
+            "example" : "Marfan syndrome"
+          },
+          "Definition" : {
+            "type" : "string",
+            "example" : "Marfan syndrome is a systemic disease of connective tissue characterized by a variable combination of cardiovascular, musculo-skeletal, ophthalmic and pulmonary manifestations."
+          }
+        }
+      },
+      "ClinicalEntity_inner" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 10
+          },
+          "Status" : {
+            "type" : "string",
+            "example" : "Active",
+            "enum" : [ "Active", "Active_Historical entity", "Inactive_Deprecated entity", "Inactive_Obsolete entity", "Inactive_Non Rare disease in Europe" ]
+          },
+          "Preferred term" : {
+            "type" : "string",
+            "example" : "48,XXYY syndrome"
+          },
+          "Definition" : {
+            "type" : "string",
+            "example" : "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+          }
+        }
+      },
+      "ICD10_Code ICD" : {
+        "type" : "object",
+        "properties" : {
+          "Code ICD10" : {
+            "type" : "string",
+            "example" : "Q98.8"
+          },
+          "DisorderMappingRelation" : {
+            "type" : "string",
+            "example" : "NTBT",
+            "enum" : [ "E", "NTBT", "BTNT", "NTBT/E", "BTNT/E", "ND" ]
+          },
+          "DisorderMappingICDRelation" : {
+            "type" : "string",
+            "example" : "Attributed",
+            "enum" : [ "Specific code", "Inclusion term", "Index term", "Attributed" ]
+          },
+          "DisorderMappingValidationStatus" : {
+            "type" : "string",
+            "example" : "Validated",
+            "enum" : [ "Validated", "Not yet validated" ]
+          }
+        }
+      },
+      "Classification_classification" : {
+        "type" : "object",
+        "properties" : {
+          "ID of the classification" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 12948
+          },
+          "Name of the classification" : {
+            "type" : "string",
+            "example" : "Rare cardiac disease"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 97929
+          },
+          "Preferred term" : {
+            "type" : "string",
+            "example" : "Rare cardiac disease"
+          }
+        }
+      },
+      "FindbyOMIM_inner" : {
+        "type" : "object",
+        "properties" : {
+          "Date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "ORPHAnumber" : {
+            "type" : "integer",
+            "format" : "int32",
+            "example" : 558
+          },
+          "Status" : {
+            "type" : "string",
+            "example" : "Active",
+            "enum" : [ "Active", "Active_Historical entity", "Inactive_Deprecated entity", "Inactive_Obsolete entity", "Inactive_Non Rare disease in Europe" ]
+          },
+          "Preferred term" : {
+            "type" : "string",
+            "example" : "Marfan syndrome"
+          },
+          "Definition" : {
+            "type" : "string",
+            "example" : "Marfan syndrome is a systemic disease of connective tissue characterized by a variable combination of cardiovascular, musculo-skeletal, ophthalmic and pulmonary manifestations."
+          },
+          "DisorderMappingRelation" : {
+            "type" : "string",
+            "example" : "NTBT",
+            "enum" : [ "E", "NTBT", "BTNT", "NTBT/E", "BTNT/E", "ND" ]
+          },
+          "DisorderMappingValidationStatus" : {
+            "type" : "string",
+            "example" : "Validated",
+            "enum" : [ "Validated", "Not yet validated" ]
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "api_key" : {
+        "type" : "apiKey",
+        "name" : "api_key",
+        "in" : "header"
+      },
+      "basic_auth" : {
+        "type" : "http",
+        "scheme" : "basic"
+      }
+    }
+  }
+}
