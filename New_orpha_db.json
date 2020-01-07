@@ -1,0 +1,464 @@
+{
+  "en_ClinicalEntity": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "Status": "Active",
+      "Preferred term": "48,XXYY syndrome",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "Status": "Active",
+      "Preferred term": "ABC syndrome",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "Status": "Inactive_Deprecated entity",
+      "Preferred term": "XYZ syndrome",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    }
+  ],
+  "en_ClinicalEntity_Status": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "Status": "Active"
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "Status": "Active"
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "Status": "Inactive_Deprecated entity"
+    }
+  ],
+  "en_ClinicalEntity_TargetEntity": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "Status": "Active",
+      "Relation": "referred to",
+      "Target ORPHAnumber": "100"
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "Status": "Active",
+      "Relation": "referred to",
+      "Target ORPHAnumber": "50"
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "Status": "Inactive_Deprecated entity",
+      "Relation": "referred to",
+      "Target ORPHAnumber": "10000"
+    }
+  ],
+  "en_ClinicalEntity_Name": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "Preferred term": "48,XXYY syndrome"
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "Preferred term": "ABC syndrome"
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "Preferred term": "XYZ syndrome"
+    }
+  ],
+  "en_ClinicalEntity_Definition": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    }
+  ],
+  "en_ClinicalEntity_Synonym": [
+    {
+      "Date": "2019-07-19 05:27:50",
+      "ORPHAnumber": "73",
+      "Synonym(s)": ["Gorham disease", "Gorham syndrome", "Idiopathic massive osteolysis", "Progressive massive osteolysis", "Vanishing bone disease"]
+    },
+    {
+      "Date": "2015-07-19 05:27:50",
+      "ORPHAnumber": "990",
+      "Synonym(s)": ["G syndrome", "Idiopathic", "Osteolysis"]
+    },
+    {
+      "Date": "2014-07-19 05:27:50",
+      "ORPHAnumber": "283",
+      "Synonym(s)": ["G disease", "Progressive", "Vanishing bone"]
+    }
+  ],
+  "en_ClinicalEntity_GroupType": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "GroupType": "Disorder"
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "GroupType": "Group"
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "GroupType": "SubType"
+    }
+  ],
+  "en_ClinicalEntity_Type": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "Type": "disease"
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "Type": "clinical syndrome"
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "Type": "clinical subtype"
+    }
+  ],
+  "en_ClinicalEntity_OrphanetURL": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "OrphanetURL": "http://www.orpha.net/ORDO/Orphanet_10"
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "OrphanetURL": "http://www.orpha.net/ORDO/Orphanet_5"
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "OrphanetURL": "http://www.orpha.net/ORDO/Orphanet_1000"
+    }
+  ],
+  "en_ClinicalEntity_ORPHAnumberAgregation": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumberAgregation": "10",
+      "Preferred term": "48,XXYY syndrome"
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumberAgregation": "5",
+      "Preferred term": "ABC syndrome"
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumberAgregation": "1000",
+      "Preferred term": "XYZ syndrome"
+    }
+  ],
+  "en_ClinicalEntity_orphanumber_ICD10": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "OrphanetURL": "http://www.orpha.net/ORDO/Orphanet_10",
+      "ICD10": [
+        {
+          "Code ICD10": "Q98.8",
+          "DisorderMappingRelation": "NTBT",
+          "DisorderMappingICDRelation": "Attributed",
+          "DisorderMappingValidationStatus": "Validated"
+        },
+        {
+          "Code ICD10": "Q99",
+          "DisorderMappingRelation": "NTBT",
+          "DisorderMappingICDRelation": "Attributed",
+          "DisorderMappingValidationStatus": "Validated"
+        }
+      ]
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "OrphanetURL": "http://www.orpha.net/ORDO/Orphanet_5",
+      "ICD10": [
+        {
+          "Code ICD10": "P55",
+          "DisorderMappingRelation": "E",
+          "DisorderMappingICDRelation": "Specific code",
+          "DisorderMappingValidationStatus": "Validated"
+        }
+      ]
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "OrphanetURL": "http://www.orpha.net/ORDO/Orphanet_1000",
+      "ICD10": [
+        {
+          "Code ICD10": "R1010",
+          "DisorderMappingRelation": "E",
+          "DisorderMappingICDRelation": "Attributed",
+          "DisorderMappingValidationStatus": "Not yet validated"
+        }
+      ]
+    }
+  ],
+  "en_ClinicalEntity_ICD10": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "Status": "Active",
+      "Preferred term": "48,XXYY syndrome",
+      "ICD10": "A1",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "Status": "Active",
+      "Preferred term": "ABC syndrome",
+      "ICD10": "B2",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "Status": "Inactive_Deprecated entry",
+      "Preferred term": "XYZ syndrome",
+      "ICD10": "C3",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    }
+  ],
+  "en_ClinicalEntity_Classification": [
+    {
+      "Date": "2019-07-19 06:15:35",
+      "ORPHAnumber": "167848",
+      "Preferred term": "Rare Cardiomyopathy",
+      "classification": [
+        {
+          "ID of the classification": "12948",
+          "Name of the classification": "Rare cardiac disease",
+          "ORPHAnumber": "97929",
+          "Preferred term": "Rare cardiac disease"
+        }
+      ]
+    },
+    {
+      "Date": "2011-07-19 06:15:35",
+      "ORPHAnumber": "456",
+      "Preferred term": "Rare Cancer",
+      "classification": [
+        {
+          "ID of the classification": "9911",
+          "Name of the classification": "Rare tumour",
+          "ORPHAnumber": "5555",
+          "Preferred term": "Rare cancerous growth"
+        },
+        {
+          "ID of the classification": "911",
+          "Name of the classification": "Rare neoplasm",
+          "ORPHAnumber": "5554",
+          "Preferred term": "Rare cancerous growth"
+        }
+      ]
+    },
+    {
+      "Date": "2012-07-19 06:15:35",
+      "ORPHAnumber": "123",
+      "Preferred term": "Rare Neuropathy",
+      "classification": [
+        {
+          "ID of the classification": "101010",
+          "Name of the classification": "Rare neurological disease",
+          "ORPHAnumber": "10001000",
+          "Preferred term": "Rare neuropathy"
+        }
+      ]
+    }
+  ],
+  "en_Classification": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "10",
+      "Classification_id": "1010",
+      "Status": "Active",
+      "Preferred term": "48,XXYY syndrome",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    },
+    {
+      "Date": "2018-07-18 18:44:24",
+      "ORPHAnumber": "5",
+      "Classification_id": "5050",
+      "Status": "Active",
+      "Preferred term": "ABC syndrome",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    },
+    {
+      "Date": "2017-07-18 18:44:24",
+      "ORPHAnumber": "1000",
+      "Classification_id": "1010",
+      "Status": "Deprecated",
+      "Preferred term": "XYZ syndrome",
+      "Definition": "A rare sex chromosome number anomaly disorder characterized, genetically, by the presence of an extra X and Y chromosome in males and, clinically, by tall stature, dysfunctional testes associated with infertility and insufficient testosterone production, cognitive, affective and social functioning impairments, global developmental delay, and an increased risk of congenital malformations."
+    }
+  ],
+  "en_Classification_Parent": [
+    {
+      "ORPHAnumber": "167848",
+      "Preferred term": "Rare cardiomyopathy",
+      "Parent": [
+        {
+          "Classification_id": "12948",
+          "Name of the classification": "Rare cardiac disease",
+          "ORPHAnumber n+1": "97929",
+          "Preferred term n+1": "Rare cardiac disease"
+        },
+        {
+          "Classification_id": "12949",
+          "Name of the classification": "Rare heart disease",
+          "ORPHAnumber n+1": "97930",
+          "Preferred term n+1": "Rare heart disease"
+        }
+      ]
+    },
+    {
+      "ORPHAnumber": "456",
+      "Preferred term": "Rare Cancer",
+      "Parent": [
+        {
+          "Classification_id": "9911",
+          "Name of the classification": "Rare tumour",
+          "ORPHAnumber n+1": "5555",
+          "Preferred term n+1": "Rare cancerous growth"
+        },
+        {
+          "Classification_id": "9912",
+          "Name of the classification": "Rare growth",
+          "ORPHAnumber n+1": "5556",
+          "Preferred term n+1": "Rare growth"
+        }
+      ]
+    },
+    {
+      "ORPHAnumber": "123",
+      "Preferred term": "Rare Neuropathy",
+      "Parent": [
+        {
+          "Classification_id": "101010",
+          "Name of the classification": "Rare neurological disease",
+          "ORPHAnumber n+1": "10001000",
+          "Preferred term n+1": "Rare neuropathy"
+        }
+      ]
+    }
+  ],
+  "en_Classification_Child": [
+    {
+      "ORPHAnumber": "167848",
+      "Preferred term": "Rare cardiomyopathy",
+      "Classification_id": "8591",
+      "Name of the classification": "Arrhythmogenic right ventricular cardiomyopathy",
+      "ORPHAnumber n-1": "247",
+      "Preferred term n-1": "Arrhythmogenic right ventricular cardiomyopathy"
+    },
+    {
+      "ORPHAnumber": "456",
+      "Preferred term": "Rare tumour",
+      "Classification_id": "33",
+      "Name of the classification": "Tumour",
+      "ORPHAnumber n-1": "22",
+      "Preferred term n-1": "Child of tumour"
+    },
+    {
+      "ORPHAnumber": "123",
+      "Preferred term": "Rare neuropathy",
+      "Classification_id": "44",
+      "Name of the classification": "Neuropathy",
+      "ORPHAnumber n-1": "11",
+      "Preferred term n-1": "Child of neuropathy"
+    }
+  ],
+  "en_ClinicalEntity_FindbyOMIM": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "558",
+      "Status": "Active",
+      "Preferred term": "Marfan syndrome",
+      "Definition": "Marfan syndrome is a systemic disease of connective tissue characterized by a variable combination of cardiovascular, musculo-skeletal, ophthalmic and pulmonary manifestations.",
+      "DisorderMappingRelation": "NTBT",
+      "DisorderMappingValidationStatus": "Validated",
+      "codeOMIM": "85"
+    },
+    {
+      "Date": "2000-07-18 18:44:24",
+      "ORPHAnumber": "111",
+      "Status": "Deprecated",
+      "Preferred term": "Some other syndrome",
+      "Definition": "Marfan syndrome is a systemic disease of connective tissue characterized by a variable combination of cardiovascular, musculo-skeletal, ophthalmic and pulmonary manifestations.",
+      "DisorderMappingRelation": "E",
+      "DisorderMappingValidationStatus": "Validated",
+      "codeOMIM": "86"
+    },
+    {
+      "Date": "2001-07-18 18:44:24",
+      "ORPHAnumber": "222",
+      "Status": "Active",
+      "Preferred term": "Another syndrome",
+      "Definition": "Marfan syndrome is a systemic disease of connective tissue characterized by a variable combination of cardiovascular, musculo-skeletal, ophthalmic and pulmonary manifestations.",
+      "DisorderMappingRelation": "E",
+      "DisorderMappingValidationStatus": "Not yet validated",
+      "codeOMIM": "87"
+    }
+  ],
+  "en_ClinicalEntity_FindbyName": [
+    {
+      "Date": "2019-07-18 18:44:24",
+      "ORPHAnumber": "558",
+      "Status": "Active",
+      "Preferred term": "Marfan syndrome",
+      "Name": "Marfan syndrome",
+      "Definition": "Marfan syndrome is a systemic disease of connective tissue characterized by a variable combination of cardiovascular, musculo-skeletal, ophthalmic and pulmonary manifestations."
+    },
+    {
+      "Date": "2000-07-18 18:44:24",
+      "ORPHAnumber": "111",
+      "Status": "Active",
+      "Preferred term": "Some other syndrome",
+      "Name": "Some other syndrome",
+      "Definition": "Marfan syndrome is a systemic disease of connective tissue characterized by a variable combination of cardiovascular, musculo-skeletal, ophthalmic and pulmonary manifestations."
+    },
+    {
+      "Date": "2001-07-18 18:44:24",
+      "ORPHAnumber": "222",
+      "Status": "Active_Historical entity",
+      "Preferred term": "Another syndrome",
+      "Name": "Another syndrome",
+      "Definition": "Marfan syndrome is a systemic disease of connective tissue characterized by a variable combination of cardiovascular, musculo-skeletal, ophthalmic and pulmonary manifestations."
+    }
+  ]
+}
